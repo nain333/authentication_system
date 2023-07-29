@@ -1,0 +1,27 @@
+{
+  "name": "authentication-system",
+  "version": "1.0.0",
+  "description": "user authentication system using nodejs with passportjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nain333/authentication_system.git"
+  },
+  "keywords": [
+    "authentication",
+    "system",
+    "nodejs"
+  ],
+  "author": "@nain333",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nain333/authentication_system/issues"
+  },
+  "homepage": "https://github.com/nain333/authentication_system#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
