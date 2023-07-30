@@ -1,0 +1,42 @@
+body {
+    background-color: black;
+    box-sizing: border-box;
+  }
+.home_heading{
+    color:lime;
+    text-align:center;
+}
+.component_disc_head{
+    color:aqua; 
+    text-align: center;
+}
+.member_card_container{
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.member_card h2{
+    color:lime
+    
+}
+.not_a_member_card h2{
+    color: cyan;
+}
+.sign_in_button{
+    background-color: #4285F4;
+    color:white;
+    border:none;
+    width: 70px;
+    height: 50px;
+    text-align: center;
+    
+}
+.sign_up_button{
+    background-color: #4285F4;
+    color:white;
+    border:none;
+    width: 70px;
+    height: 50px;
+    text-align: center;
+}
