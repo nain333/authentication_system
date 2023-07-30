@@ -12,7 +12,7 @@ module.exports.signUp= (req,res)=>{
 }
 module.exports.createSession=function(req,res){
     console.log('Session is created')
-    res.redirect('/users/dashboard')
+    res.redirect('/users/dashboard/')
 }
 module.exports.create=async function(req,res){
     try{
@@ -25,7 +25,7 @@ module.exports.create=async function(req,res){
     if(req.body.password!=req.body.confirm_password){
         return res.send('Passwords do not match!')
     }
-    const newUser=User.create(req.body)
+    const newUser=await User.create(req.body)
     console.log('user created successfuly')
     return res.redirect('/')
     
