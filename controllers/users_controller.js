@@ -16,9 +16,10 @@ module.exports.createSession=function(req,res){
 }
 module.exports.create=async function(req,res){
     try{
-    console.log(req.body)
+    console.log(req.body.email)
     const user = await User.findOne({email:req.body.email})
     console.log(user)
+    
     if(user){
         return res.send('user already exists')
     }
