@@ -8,6 +8,7 @@ const expressLayouts=require('express-ejs-layouts')
 const passport = require('passport')
 const passportLocal=require('./config/passport-local-streategy')
 const expressSession=require('express-session')
+const MongoStore=require('connect-mongo')
 app.set('view engine','ejs')
 app.set('views',path.join(__dirname,'views'))
 app.use(express.static('./assets'))
@@ -28,7 +29,12 @@ app.use(expressSession(
         cookie:{
             maxAge:600000
             
-        }
+        },
+        store:MongoStore.create(
+            {
+                mongoUrl:'mongodb://127.0.0.1:27017/authentication-system'
+            }
+        )
     }
 ))
 app.use(passport.initialize())
