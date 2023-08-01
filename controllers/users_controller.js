@@ -1,3 +1,4 @@
+const { session } = require('passport')
 const User = require('../models/users')
 module.exports.signIn=(req,res)=>{
     res.render('sign_in',{
@@ -33,4 +34,14 @@ module.exports.create=async function(req,res){
 }catch(err){
     console.log(err)
 }
+}
+module.exports.destroySession=function(req,res){
+    console.log('inside the destroy session function')
+    req.logout((err)=>{
+        if(err){
+        console.log('Error while signing out the user: ',err)
+        return
+        }
+    })
+    res.redirect('/')
 }

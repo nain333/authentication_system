@@ -5,6 +5,7 @@ const router = express.Router()
 router.get('/sign-in',usersController.signIn)
 router.get('/sign-up',usersController.signUp)
 router.use('/dashboard',require('./dashboard'))
+router.get('/destroy-session',usersController.destroySession)
 router.post('/create',usersController.create)
 router.post('/create-session',(req,res,next)=>{
     console.log('req.body inside the createSession route: ',req.body)

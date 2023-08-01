@@ -1,1 +1,9 @@
-page header
+<ul>
+    <% if (locals.user){%>
+         <h6>
+            <a href="/users/destroy-session">Logout</a>
+         </h6>
+        <% }else{ %>
+            <h6>Header</h6>
+            <% } %>
+</ul>
