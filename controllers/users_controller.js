@@ -37,11 +37,12 @@ module.exports.create=async function(req,res){
 }
 module.exports.destroySession=function(req,res){
     console.log('inside the destroy session function')
-    req.logout((err)=>{
+    req.logout(req.user,(err)=>{
         if(err){
         console.log('Error while signing out the user: ',err)
         return
         }
+        return res.redirect('/')
     })
-    res.redirect('/')
+    
 }
