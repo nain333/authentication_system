@@ -1,6 +1,10 @@
 const { session } = require('passport')
 const User = require('../models/users')
-const Reset_Tokens=require('../models/reset_pass_tokens')
+const Reset_Tokens=require('../models/reset_pass_tokens.js')
+const fs = require('fs');
+const path = require ('path')
+const crypto = require('crypto');
+
 module.exports.signIn=(req,res)=>{
     res.render('sign_in',{
         title:'Sign In | Authenticator'
@@ -53,12 +57,40 @@ module.exports.forgotPassword=function(req,res){
         title:'Account Recovery || Authenticator'
     })
 }
-module.exports.resetPassword = async function(req,res){
+module.exports.resetPassword=async function(req,res){
+    try{
     let user= await User.findOne({email:req.body.reset_mail})
+    if(user){
+    let Token = await Reset_Tokens.create({
+        user:user,
+    
+        accessToken:crypto.randomBytes(100).toString('hex'),
+    
+        isValid:true
+    })
+     console.log('your passResetToken is ',Token)
+    //  passwordResetMailer.resetPasswordToken(Token)
+    // let job = queue.create('resetemail',Token).save(function(err){
+    //     if(err){
+    //         console.log('Error in creating qeue for  reset_password_mailer ',err)
+    //     }
+    //     console.log(job.id)
+    // })
+    
+    console.log('user: ', user)
+
+    }
     return res.render('account_recovery',{
         title:'Account Recovry || Codial',
         resetUser:user,
         resetMail:req.body.reset_mail
         
     })
+
+ }
+ catch{
+    (err)=>{
+        console.log(err)
+    }
+}
 }
