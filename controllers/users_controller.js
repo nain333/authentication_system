@@ -1,5 +1,6 @@
 const { session } = require('passport')
 const User = require('../models/users')
+const Reset_Tokens=require('../models/reset_pass_tokens')
 module.exports.signIn=(req,res)=>{
     res.render('sign_in',{
         title:'Sign In | Authenticator'
