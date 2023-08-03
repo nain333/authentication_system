@@ -23,4 +23,8 @@ router.post('/create-session',(req,res,next)=>{
 ),usersController.createSession)
 router.post('/account-recovery',usersController.resetPassword)
 router.get('/forgot-password',usersController.forgotPassword)
+router.get('/reset-password/:accessToken',usersController.askNewPassword)
+
+router.post('/reset-password/:accessToken',usersController.setNewPassword)
+
 module.exports = router;

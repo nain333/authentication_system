@@ -96,3 +96,73 @@ module.exports.resetPassword=async function(req,res){
     }
 }
 }
+
+
+module.exports.askNewPassword=async function(req,res){
+    // try{
+    // var resetToken =  await Reset_Tokens.findOne({accessToken:req.params.accessToken})
+    // console.log('findOne result: ',resetToken)
+    // console.log('token in url:',req.params.accessToken.toString())
+    // console.log('token inside ask password: ',token)
+    // return res.render('create_new_password',{
+    //     token:resetToken,
+    //     title:'Create new Password'
+        
+    // })
+    // }
+    // catch{
+    //     console.log('Error in finding User')
+    // }
+
+    
+    Reset_Tokens.findOne({
+        accessToken:req.params.accessToken.toString()
+        
+    }).then((token)=>{
+        console.log('token inside url :',req.params.accessToken)
+        console.log('Token inside the findOne: ',token)
+        return res.render('create_new_password',{
+            title:'Create a new password | Authenticator',
+            token:token
+
+        })
+
+
+    })
+    
+
+}
+module.exports.setNewPassword=async function(req, res){
+    try{
+    let token = await Reset_Tokens.findOne({accessToken:req.params.accessToken})
+    console.log('Token inside setNewPassword:',token)
+    if(token.isValid){
+        if(req.body.new_password!=req.body.confirm_new_password){
+            return res.send('<h1>Password and confirm Passwords dont match, please try again<h1>')
+        }
+        else{
+            console.log('user_id of updation: ',token.user._id," confirm passsword ",req.body.confirm_new_password)
+            let findPassword=await User.findOne({
+                _id:token.user._id
+
+
+            })
+            findPassword.password=req.body.confirm_new_password;
+            await findPassword.save()
+            
+            console.log('Password set successfully')
+            let setFalse=await Reset_Tokens.findOneAndUpdate({accessToken:req.params.accessToken},{isValid:false}) 
+            }
+            // return res.redirect('/users/reset-password/successfully')
+            return res.send(
+                '<h1> password set successfully</h1> <a href="/users/sign-in">return to login</a>'
+                
+                )
+        }else{
+            res.send('Your access token expired plese request for password change again!')
+        }
+    }catch(err){
+        console.log('Error while update the password', err)
+    }
+
+}

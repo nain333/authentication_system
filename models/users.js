@@ -33,5 +33,19 @@ userSchema.pre('save',async function(next){
     next()
 
 })
+
+// userSchema.pre('',async function(next){
+//     console.log('pre updation insdie user Model is called')
+
+//     if(this.isModified('password')||this.isNew){
+
+//         const hash = await bcrypt.hash(this.password,13)
+//         console.log("hashed password is: ", hash)
+//         this.password=hash
+
+//     }
+//     next()
+
+// })
 const User= mongoose.model('User',userSchema)
 module.exports=User
