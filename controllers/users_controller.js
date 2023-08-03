@@ -20,6 +20,7 @@ module.exports.signUp= (req,res)=>{
 }
 module.exports.createSession=function(req,res){
     console.log('Session is created')
+    req.flash('success','Signed in successfuly!')
     res.redirect('/users/dashboard/')
 }
 module.exports.create=async function(req,res){
@@ -29,13 +30,16 @@ module.exports.create=async function(req,res){
     console.log(user)
     
     if(user){
-        return res.send('user already exists')
+        // return res.send('user already exists')
+         req.flash('success','User already exists')
+        return res.redirect('/users/sign-up')
     }
     if(req.body.password!=req.body.confirm_password){
         return res.send('Passwords do not match!')
     }
     const newUser=await User.create(req.body)
     console.log('user created successfuly')
+    req.flash('success', 'sucessfuly singed up as ',newUser.name)
     return res.redirect('/')
     
 }catch(err){
@@ -49,6 +53,7 @@ module.exports.destroySession=function(req,res){
         console.log('Error while signing out the user: ',err)
         return
         }
+        req.flash('success','Logged out successfuly')
         return res.redirect('/')
     })
     

@@ -10,6 +10,9 @@ const passportLocal=require('./config/passport-local-streategy')
 const expressSession=require('express-session')
 const MongoStore=require('connect-mongo')
 const passportGoogle=require('./config/passport-google-outh2')
+const flash = require('connect-flash')
+const customMware=require('./config/middleware.js')
+
 app.set('view engine','ejs')
 app.set('views',path.join(__dirname,'views'))
 app.use(express.static('./assets'))
@@ -41,6 +44,8 @@ app.use(expressSession(
 app.use(passport.initialize())
 app.use(passport.session())
 app.use(passport.setAuthenticatedUser)
+app.use(flash())
+app.use(customMware.setFlash)
 app.use('/',require('./routes'))
 
 
