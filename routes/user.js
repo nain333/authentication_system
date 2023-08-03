@@ -21,4 +21,5 @@ router.post('/create-session',(req,res,next)=>{
     'local',
     {failureRedirect:'/users/sign-in-failed'}
 ),usersController.createSession)
+router.get('/forgot-password',usersController.forgotPassword)
 module.exports = router;

@@ -46,3 +46,9 @@ module.exports.destroySession=function(req,res){
     })
     
 }
+module.exports.forgotPassword=function(req,res){
+    res.render('forgot_password',
+    {
+        title:'Account Recovery || Authenticator'
+    })
+}
