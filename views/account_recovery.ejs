@@ -1,0 +1,5 @@
+<% if(!resetUser) {%>
+    <h1>No user found with <%= resetMail %></h1>
+<% } else { %>
+    <h5>An email with reset Password link has been sent to </h5><h1><%= resetMail %></h1>
+<% } %>

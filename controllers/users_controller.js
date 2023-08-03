@@ -52,3 +52,12 @@ module.exports.forgotPassword=function(req,res){
         title:'Account Recovery || Authenticator'
     })
 }
+module.exports.resetPassword = async function(req,res){
+    let user= await User.findOne({email:req.body.reset_mail})
+    return res.render('account_recovery',{
+        title:'Account Recovry || Codial',
+        resetUser:user,
+        resetMail:req.body.reset_mail
+        
+    })
+}
