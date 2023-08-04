@@ -159,12 +159,16 @@ module.exports.setNewPassword=async function(req, res){
             let setFalse=await Reset_Tokens.findOneAndUpdate({accessToken:req.params.accessToken},{isValid:false}) 
             }
             // return res.redirect('/users/reset-password/successfully')
-            return res.send(
-                '<h1> password set successfully</h1> <a href="/users/sign-in">return to login</a>'
+            // return res.send(
+            //     '<h1> password set successfully</h1> <a href="/users/sign-in">return to login</a>'
                 
-                )
+            //     )
+            req.flash('success','password Reset Successfuly')
+            res.redirect('back')
         }else{
-            res.send('Your access token expired plese request for password change again!')
+            // res.send('Your access token expired plese request for password change again!')
+            req.flash('error','your Token has expired')
+            res.redirect('back')
         }
     }catch(err){
         console.log('Error while update the password', err)
