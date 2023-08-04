@@ -1,0 +1,19 @@
+body{
+    background-color: black;
+    /* center the form */
+    text-align: center;
+    .sign_up_form{
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+}
+.button_google{
+    background-color: #4285F4;
+    color:white;
+    border:none;
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    margin-top: 25px;
+    
+}
