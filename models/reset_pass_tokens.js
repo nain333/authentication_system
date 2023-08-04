@@ -1,3 +1,4 @@
+// schema for reset password tokens
 const mongoose = require('mongoose')
 const resetTokensSchema=new mongoose.Schema({
     user:{

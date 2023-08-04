@@ -1,28 +1,30 @@
-const { session } = require('passport')
+const passport = require('passport')
 const User = require('../models/users')
 const Reset_Tokens=require('../models/reset_pass_tokens.js')
-const fs = require('fs');
-const path = require ('path')
 const crypto = require('crypto');
 const passwordResetMailer=require('../mailers/reset_password_mailer.js')
 const passwordResetWorker=require('../workers/reset_password_worker.js')
 const queue=require('../config/kue')
+// render sign In page
 module.exports.signIn=(req,res)=>{
     res.render('sign_in',{
         title:'Sign In | Authenticator'
     })
 }
+// render sign up page
 module.exports.signUp= (req,res)=>{
     res.render('sign_up',{
         title:'Sign Up | Authenticator'
     })
 
 }
+// create userSession
 module.exports.createSession=function(req,res){
     console.log('Session is created')
     req.flash('success','Signed in successfuly!')
     res.redirect('/users/dashboard/')
 }
+// create new user in the db and save the password in hashed format via pre-modle function call
 module.exports.create=async function(req,res){
     try{
     console.log(req.body.email)
@@ -46,6 +48,7 @@ module.exports.create=async function(req,res){
     console.log(err)
 }
 }
+// log the user out
 module.exports.destroySession=function(req,res){
     console.log('inside the destroy session function')
     req.logout(req.user,(err)=>{
@@ -58,12 +61,14 @@ module.exports.destroySession=function(req,res){
     })
     
 }
+// render forget password page
 module.exports.forgotPassword=function(req,res){
     res.render('forgot_password',
     {
         title:'Account Recovery || Authenticator'
     })
 }
+// send password recovery mail if the recovery email is valid
 module.exports.resetPassword=async function(req,res){
     try{
     let user= await User.findOne({email:req.body.reset_mail})
@@ -102,6 +107,7 @@ module.exports.resetPassword=async function(req,res){
 }
 }
 
+// ask a new password when the link with token is clicked inside the mail sent
 
 module.exports.askNewPassword=async function(req,res){
     // try{
@@ -137,6 +143,7 @@ module.exports.askNewPassword=async function(req,res){
     
 
 }
+// set the new passwprd if matches confirm password and save it to db in hashed format
 module.exports.setNewPassword=async function(req, res){
     try{
     let token = await Reset_Tokens.findOne({accessToken:req.params.accessToken})

@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema({
 },{
     timestamps:true
 })
-
+// pre model function to be called before saving password new / modified by user 
 userSchema.pre('save',async function(next){
     console.log('pre insdie user Model is called')
 
