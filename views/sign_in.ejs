@@ -1,10 +1,12 @@
-<h1>
+<link rel="stylesheet" href="/css/sign_in.css">
+<h1 class="greet_heading">
     Please make your way in!
 </h1>
-<form action="/users/create-session" method="post">
+
+<form class="sign_in_form" action="/users/create-session" method="post">
 <input type="email" name="email" placeholder="type in your email @ domain.com" required >
 <input type="password" name="password" placeholder="Type your password..." required>
 
 <button type="submit"> Sign In</button>
 </form>
-<button class="button google" onclick="location.href='/users/auth/google'">Sign In/Sign Up with Google</button>
+<button class="button_google" onclick="location.href='/users/auth/google'">Google Sign In</button>

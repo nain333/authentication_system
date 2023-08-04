@@ -1,0 +1,17 @@
+body{
+    background-color: black;
+    text-align: center;
+}
+.button_google{
+    background-color: #4285F4;
+    color:white;
+    border:none;
+    width: 70px;
+    height: 70px;
+    text-align: center;
+    margin-top: 25px;
+    
+}
+.greet_heading{
+    color:white
+}
