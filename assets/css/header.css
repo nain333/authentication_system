@@ -2,6 +2,7 @@ header{
     background-color: aqua;
     display: flex;
     justify-content: space-around;
+    height: 100px;
     
 }
 #app-heading{
@@ -11,6 +12,7 @@ header{
     text-decoration: none;
     color:whitesmoke;
     cursor: pointer;
+    
 }
 #page_links{
 
@@ -20,4 +22,16 @@ header{
 }
 #page_links li{
     margin-left: 10px;
+}
+.log_out{
+    text-decoration: none;
+    font-size: medium;
+    color:white
+}
+#page_links li a h3{
+    
+    color:white;
+}
+#page_links li a{
+    text-decoration: none;
 }
