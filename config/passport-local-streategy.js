@@ -15,12 +15,18 @@ try{
             email:email
         })
         console.log('user inside passportjs: ',user)
+        if(!user){
+          req.flash('error','invalid username or password!')
+          return done(null,false)
+        } 
+        
         const isValid=await bcrypt.compare(password,user.password)
-        if(!user || !isValid){ 
-           req.flash('success','Incorrect username/password')
+        if(!isValid){ 
+           req.flash('error','Incorrect username/password')
          
           return done(null,false)
         }
+        
         console.log('user retured to the authenticator')
         return done(null,user)
         
@@ -29,6 +35,7 @@ try{
    req.flash('success','invalid username/password')
   
     console.log(`Error while finding user --->>> ${err}`)
+    return done(err)
 
 }
 
