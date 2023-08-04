@@ -7,7 +7,7 @@ passport.use(new LocalStreategy({
     passReqToCallback:true
     
     },
-    async function (email,password,done){
+    async function (req,email,password,done){
         // find the user and establish the identity
 try{
     console.log('inside authenticator')
@@ -26,7 +26,7 @@ try{
         
 
 }catch(err){
-  // req.flash('success','invalid username/password')
+   req.flash('success','invalid username/password')
   
     console.log(`Error while finding user --->>> ${err}`)
 

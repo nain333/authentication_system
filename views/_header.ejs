@@ -1,5 +1,8 @@
 <link rel="stylesheet" href="/css/header.css">
 <ul>
+    <h2 id="app-heading"> <a href="/">The Authenticator </a></h2>
+</ul>
+<ul>
     <% if (locals.user){%>
          <h6>
             <a href="/users/destroy-session">Logout</a>
@@ -7,4 +10,15 @@
         <% }else{ %>
             <h6>Header</h6>
             <% } %>
+</ul>
+<ul id="page_links">
+    <li>
+   <a href=""> <h3>Sign in</h3></a>
+    </li>
+    <li>
+        <a href=""><h3>Sign up</h3></a>
+    </li>
+    <li>
+        <a href=""> <h3>Forgot Password?</h3></a>
+    </li>
 </ul>
