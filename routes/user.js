@@ -19,12 +19,11 @@ router.post('/create-session',(req,res,next)=>{
 
 },passport.authenticate(
     'local',
-    {failureRedirect:'/users/sign-in-failed'}
+    {failureRedirect:'/users/failed'}
 ),usersController.createSession)
 router.post('/account-recovery',usersController.resetPassword)
 router.get('/forgot-password',usersController.forgotPassword)
 router.get('/reset-password/:accessToken',usersController.askNewPassword)
-
 router.post('/reset-password/:accessToken',usersController.setNewPassword)
 
 module.exports = router;

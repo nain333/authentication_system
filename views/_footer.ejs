@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="/css/footer.css">
+<footer>
+
+
+    <h4 id="my-foot-details">&copy; Authenticator All Copy Rights Reserved</h4>
+
+    <ul>
+    <% if(locals.user) { %>
+
+            
+
+        <li class="page_links">
+            <a href="/">Home</a>
+        </li>
+        <li class="page_links">
+            <a href="/users/dashboard/<%= user._id  %>">dashboard</a>
+        </li>
+        
+        
+        
+
+
+  <%  } else { %>
+    <li class="page_links">
+        <a href="/">Home</a>
+    </li> 
+    
+  <%} %>
+</ul>
+</footer>

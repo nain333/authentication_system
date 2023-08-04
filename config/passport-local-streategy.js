@@ -4,9 +4,10 @@ const bcrypt=require('bcryptjs')
 const User = require('../models/users');
 passport.use(new LocalStreategy({
     usernameField: 'email',
-    passReqToCallback: true,
+    passReqToCallback:true
+    
     },
-    async function (req,email,password,done){
+    async function (email,password,done){
         // find the user and establish the identity
 try{
     console.log('inside authenticator')
@@ -15,14 +16,18 @@ try{
         })
         console.log('user inside passportjs: ',user)
         const isValid=await bcrypt.compare(password,user.password)
-        if(!user || !isValid){
-            return done(null,false)
+        if(!user || !isValid){ 
+           req.flash('success','Incorrect username/password')
+         
+          return done(null,false)
         }
         console.log('user retured to the authenticator')
         return done(null,user)
         
 
 }catch(err){
+  // req.flash('success','invalid username/password')
+  
     console.log(`Error while finding user --->>> ${err}`)
 
 }
