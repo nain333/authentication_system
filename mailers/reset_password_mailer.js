@@ -1,5 +1,5 @@
 const nodeMailer= require('../config/nodemailer')
-// mailer function for password reset emails takes in the token as input
+// mailer function for password reset emails takes in the token as input 
 exports.resetPasswordToken=(token)=>{
 
     console.log('Token inside resetPassword Mailer', token)
