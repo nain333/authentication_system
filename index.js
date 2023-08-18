@@ -1,9 +1,10 @@
 const express = require('express')
 const app = express();
+const redisConnection=require('./config/redis')
 const path = require('path')
 const port = 7000
 const db = require('./config/mongoose')
-const redisConnection=require('./config/redis')
+
 const cookieParser=require('cookie-parser')
 const expressLayouts=require('express-ejs-layouts')
 const passport = require('passport')
