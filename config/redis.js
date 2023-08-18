@@ -2,7 +2,8 @@ const redis = require('redis');
 
 // Redis configuration options
 const redisConfig = {
-  url: 'redis://red-cjds7cavvtos73bpvvn0:6379'
+  url: 'redis://red-cjds7cavvtos73bpvvn0:6379',
+  host: 'red-cjds7cavvtos73bpvvn0'
 };
 console.log('redis config started with redis url: ',redisConfig.url)
 // Create a Redis client
