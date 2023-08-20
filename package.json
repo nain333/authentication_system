@@ -5,7 +5,7 @@
   "main": "node index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": " index.js"
+    "start": " nodemon index.js"
   },
   "repository": {
     "type": "git",
@@ -40,7 +40,6 @@
     "passport-google-oauth": "^2.0.0",
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
-    "redis": "^4.6.7",
-    "redis-server": "^1.2.2"
+    "redis": "^4.6.7"
   }
 }
