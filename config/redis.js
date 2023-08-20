@@ -1,77 +1,20 @@
-// // const redis = require('redis');
-
-// // // Redis configuration options
-// // const redisConfig = {
-// //   url: 'rediss://red-cjds7cavvtos73bpvvn0:8ALjoxstNZgb9CotNIAQpxr45IYWdMBP@singapore-redis.render.com:6379',
-  
-// // };
-// // console.log('redis config started with redis url: ',redisConfig.url)
-// // // Create a Redis client
-// // const client = redis.createClient(redisConfig);
-// // console.log("client added: ",client)
-// // // Event listeners for Redis client
-// // client.once('connect', () => {
-// //   console.log('Connected to Redis');
-// // });
-
-// // client.on('error', (error) => {
-// //   console.error('Error connecting to Redis:', error);
-// // });
-// // console.log('exporting the connection')
-
-// // // Export the Redis client
-// // module.exports = client;
-// const redis = require('redis');
-
-// // Redis configuration options
-// const redisConfig = {
-//   url: 'rediss://red-cjds7cavvtos73bpvvn0:8ALjoxstNZgb9CotNIAQpxr45IYWdMBP@singapore-redis.render.com:6379',
-//   host: 'red-cjds7cavvtos73bpvvn0'
-// };
-// console.log('redis config started with redis url: ',redisConfig.url)
-
-// // Create a Redis client
-// const client = redis.createClient(redisConfig);
-// console.log("client added: ",client)
-
-// // Event listeners for Redis client
-// client.once('connect', () => {
-//   console.log('Connected to Redis');
-// });
-
-// client.on('error', (error) => {
-//   console.error('Error connecting to Redis:', error);
-// });
-
-// console.log('exporting the connection')
-
-// // Export the Redis client
-// module.exports = client;
-
-// // Add the async function to connect
-// (async () => {
-//   await client.connect();
-// })();
-const redis = require('redis');
+const Redis = require('ioredis');
 
 // Redis configuration options
-// const redisURL = 'rediss://red-cjds7cavvtos73bpvvn0:8ALjoxstNZgb9CotNIAQpxr45IYWdMBP@singapore-redis.render.com:6379';
-const redisURL = 'redis://red-cjds7cavvtos73bpvvn0:6379'
-const redisOptions = {
-  url: redisURL,
+const redisConfig = {
+  host: 'rediss://red-cjds7cavvtos73bpvvn0:8ALjoxstNZgb9CotNIAQpxr45IYWdMBP@singapore-redis.render.com:6379', // Replace with your Redis host provided by Render.com
+  port: 6379, // Default Redis port
+  // Other configuration options if needed
 };
 
-// Create a Redis client using the URL as the configuration
-const client = redis.createClient(redisOptions);
+// Create an ioredis instance
+const redis = new Redis(redisConfig);
 
-// Event listeners for Redis client
-client.once('connect', () => {
+// Test the connection
+redis.ping().then(() => {
   console.log('Connected to Redis');
-});
-
-client.on('error', (error) => {
+}).catch(error => {
   console.error('Error connecting to Redis:', error);
 });
 
-// Export the Redis client
-module.exports = client;
+// Use the 'redis' instance to interact with your Redis server
