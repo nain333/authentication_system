@@ -1,5 +1,6 @@
+require('dotenv').config()
 const mongoose = require('mongoose')
-const dburl='mongodb://127.0.0.1:27017/authentication-system'
+const dburl=process.env.mongoUrl
 // connect mongoose to the database
 mongoose.connect('mongodb://127.0.0.1:27017/authentication-system')
 const db = mongoose.connection

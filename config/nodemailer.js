@@ -1,3 +1,4 @@
+require('dotenv').config()
 const nodemailer= require('nodemailer')
 const ejs = require('ejs')
 const path = require('path')
@@ -7,8 +8,8 @@ let transporter = nodemailer.createTransport({
     port:587,
     secure:false,
     auth:{
-        user:'codialAdd@gmail.com',
-        pass:'eiltzhzzdlyfrzvv'
+        user:process.env.mailingUser,
+        pass:process.env.mailingPassword
     }
 })
 let renderTamplet=(data,relativePath)=>{

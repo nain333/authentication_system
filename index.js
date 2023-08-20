@@ -1,3 +1,5 @@
+require('dotenv').config()
+console.log('mongoUrl in process.env: ',process.env.mongoUrl)
 const express = require('express')
 const app = express();
 // const redisConnection=require('./config/redis')
@@ -39,7 +41,7 @@ app.use(expressSession(
         },
         store:MongoStore.create(
             {
-                mongoUrl:'mongodb://127.0.0.1:27017/authentication-system'
+                mongoUrl:process.env.mongoUrl
             }
         )
     }

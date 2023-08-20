@@ -3,9 +3,9 @@ const googleOth= require('passport-google-oauth').OAuth2Strategy
 const crypto = require('crypto')
 const User = require('../models/users')
 passport.use(new googleOth({
-    clientID:'1073256670957-34v8v7427e0jaaattcoms5ret0l85lj5.apps.googleusercontent.com',
-    clientSecret:'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',
-    callbackURL:'http://localhost:7000/users/auth/google/callback',
+    clientID:process.env.clientID,
+    clientSecret:process.env.clientSecret,
+    callbackURL:process.env.callbackURL,
 },
     async function(accessToken,refreshToken,profile,done){
         try{
