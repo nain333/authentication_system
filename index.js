@@ -32,7 +32,7 @@ app.use(express.urlencoded({extended:true}))
 app.use(expressSession(
     {
         name:'Authenticator',
-        secret:'create a session buddy',
+        secret:process.env.sessionSecret,
         saveUninitialized:false,
         resave:false,
         cookie:{
