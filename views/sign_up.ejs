@@ -1,10 +1,25 @@
 <link rel="stylesheet" href="/css/sign_up.css">
 <form class="sign_up_form" action="/users/create" method="post">
-    <input type="text" name="name" placeholder="Type in your name">
-    <input type="email" name="email" placeholder="Type in your email">
-    <input type="password" name="password" placeholder="type in your password">
-    <input type="password" name="confirm_password" placeholder="Confirm your password">
+    <h1>Create Your Account!</h1>
+    <div class="user-name input-container">
+        <label for="name">Name:</label>
+        <input type="text" name="name" placeholder="Type in your name">
+    </div>
+    <div class="user-email input-container">
+        <label for="email">Email:</label>
+        <input type="email" name="email" placeholder="Type in your email">
+    </div>
+    <div class="user-pass input-container">
+        <label for="password">Password:</label>
+        <input type="password" name="password" placeholder="type in your password">
+    </div>
+    <div class="user-cnf-pass input-container">
+        <label for="confirm-password">Confirm Password:</label>
+        <input type="password" name="confirm_password" placeholder="Confirm your password">
+    </div>
     <input type="submit" value="Sign Up!">
 
+    <div class="or">or</div>
+
+    <button class="button_google" onclick="location.href='/users/auth/google'">Sign In with Google</button>
 </form>
-<button class="button_google" onclick="location.href='/users/auth/google'">Sign In with Google</button>

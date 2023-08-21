@@ -1,6 +1,10 @@
 <link rel="stylesheet" href="/css/account_recovery.css">
-<% if(!resetUser) {%>
-    <h1>No user found with <%= resetMail %></h1>
-<% } else { %>
-    <h5>An email with reset Password link has been sent to </h5><h1><%= resetMail %></h1>
-<% } %>
+
+
+<div class="account_recover">
+    <% if(!resetUser) {%>
+        <h1>No user found with <%= resetMail %></h1>
+    <% } else { %>
+        <h5>An email with reset Password link has been sent to </h5><h1><%= resetMail %></h1>
+    <% } %>
+</div>

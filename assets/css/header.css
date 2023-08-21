@@ -1,9 +1,14 @@
 header{
-    background-color: rgb(55, 55, 55);
+    background-color: rgb(51, 51, 51, 0.6);
+    backdrop-filter: blur(5px);
     display: flex;
     justify-content: space-between;
     height: 7vh;
     align-items: center;
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    
 }
 #app-heading{
     color:rgb(0, 0, 0);

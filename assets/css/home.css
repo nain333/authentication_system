@@ -1,10 +1,17 @@
-body {
-    /* background-color: black; */
-    box-sizing: border-box;
-  }
+.container{
+    background: rgba(46, 46, 46, 0.3);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10%;
+    padding: 20px;
+    border: 1px solid rgb(0, 136, 255);
+}
 .home_heading{
-    color:lime;
     text-align:center;
+    color: white;
 }
 .component_disc_head{
     color:aqua; 
@@ -17,26 +24,29 @@ body {
 }
 
 .member_card h2{
-    color:lime
-    
+    color:lime ;
+    margin: 20px;
 }
+
 .not_a_member_card h2{
     color: cyan;
 }
 .sign_in_button{
-    background-color: #4285F4;
-    color:white;
-    border:none;
-    width: 70px;
-    height: 50px;
-    text-align: center;
-    
+    padding: 10px 20px; 
+    background: rgb(85, 176, 255);
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    color: white;
+    border: none;
+
 }
 .sign_up_button{
-    background-color: #4285F4;
-    color:white;
-    border:none;
-    width: 70px;
-    height: 50px;
-    text-align: center;
+    padding: 10px 20px; 
+    background: rgb(85, 176, 255);
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    color: white;
+    border: none;
 }

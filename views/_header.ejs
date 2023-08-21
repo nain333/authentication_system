@@ -2,16 +2,14 @@
 
 
     <h2 id="app-heading"> <a href="/">The Authenticator </a></h2>
-
-<% if (locals.user){%>
-    <ul>
-    <h6>
-       <a class="log_out" href="/users/destroy-session">Logout</a>
-    </h6>
-   <% }else{ %>
        
         
 <ul id="page_links">
+    <% if (locals.user){%>
+        <li>
+           <a class="log_out" href="/users/destroy-session">Logout</a>
+        </li>
+       <% }else{ %>
     <li>
    <a href="/users/sign-in"> Sign in</a>
     </li>
