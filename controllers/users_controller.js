@@ -3,8 +3,8 @@ const User = require('../models/users')
 const Reset_Tokens=require('../models/reset_pass_tokens.js')
 const crypto = require('crypto');
 const passwordResetMailer=require('../mailers/reset_password_mailer.js')
-// // const passwordResetWorker=require('../workers/reset_password_worker.js')
-// const queue=require('../config/kue')
+ const passwordResetWorker=require('../workers/reset_password_worker.js')
+ const queue=require('../config/kue')
 // render sign In page
 module.exports.signIn=(req,res)=>{
     res.render('sign_in',{
@@ -82,12 +82,12 @@ module.exports.resetPassword=async function(req,res){
     })
      console.log('your passResetToken is ',Token)
        passwordResetMailer.resetPasswordToken(Token)
-    // let job = queue.create('resetemail',Token).save(function(err){
-    //     if(err){
-    //         console.log('Error in creating qeue for  reset_password_mailer ',err)
-    //     }
-    //     console.log(job.id)
-    // })
+     let job = queue.create('resetemail',Token).save(function(err){
+         if(err){
+             console.log('Error in creating qeue for  reset_password_mailer ',err)
+         }
+         console.log(job.id)
+     })
     
     console.log('user: ', user)
 
