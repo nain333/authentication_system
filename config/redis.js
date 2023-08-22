@@ -1,6 +1,7 @@
 require('dotenv').config()
 console.log(process.env.redisUrl)
 // const Redis = require('ioredis');
+console.log('inside redis config')
 
 // // Redis configuration options
 // const redisConfig = {

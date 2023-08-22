@@ -3,8 +3,8 @@ const User = require('../models/users')
 const Reset_Tokens=require('../models/reset_pass_tokens.js')
 const crypto = require('crypto');
 const passwordResetMailer=require('../mailers/reset_password_mailer.js')
- const passwordResetWorker=require('../workers/reset_password_worker.js')
- const queue=require('../config/kue')
+ 
+//  const queue=require('../config/kue')
 // render sign In page
 module.exports.signIn=(req,res)=>{
     res.render('sign_in',{

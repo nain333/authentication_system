@@ -2,7 +2,7 @@ require('dotenv').config()
 console.log('mongoUrl in process.env: ',process.env.mongoUrl)
 const express = require('express')
 const app = express();
- const redisConnection=require('./config/redis')
+//const redisConnection=require('./config/redis')
 // I excluded workers and qeues from the project because I don't have aws instance and I tried connecting to redis on render.com , but couldn't connect ried redis and ioredis for the connection, for the sake of deployment purposes I am dropping qeues and workers from my project
 const path = require('path')
 const port = 7000
