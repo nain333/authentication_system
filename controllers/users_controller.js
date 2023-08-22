@@ -81,13 +81,13 @@ module.exports.resetPassword=async function(req,res){
         isValid:true
     })
      console.log('your passResetToken is ',Token)
-    //    passwordResetMailer.resetPasswordToken(Token)
-     let job = queue.create('resetemail',Token).save(function(err){
-         if(err){
-             console.log('Error in creating qeue for  reset_password_mailer ',err)
-         }
-         console.log(job.id)
-     })
+        passwordResetMailer.resetPasswordToken(Token)
+    //  let job = queue.create('resetemail',Token).save(function(err){
+    //      if(err){
+    //          console.log('Error in creating qeue for  reset_password_mailer ',err)
+    //      }
+    //      console.log(job.id)
+    //  })
     
     console.log('user: ', user)
 
