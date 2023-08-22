@@ -1,21 +1,24 @@
 <link rel="stylesheet" href="/css/sign_in.css">
+<div class="sign_in_container">
 
-<form class="sign_in_form" action="/users/create-session" method="post">
-    <h1>Please make your way in!</h1>
-    <div class="input-container">
-        <label for="email">Email</label>
-        <input type="email" name="email" placeholder="type in your email @ domain.com" required >
-    </div>
-
-    <div class="input-container">
-        <label for="password">Password:</label>
-        <input type="password" name="password" placeholder="Type your password..." required>
-    </div>
-
-<input type="submit" value="Sign In">
-<div class="or">or</div>
-
-<button class="button_google" onclick="location.href='/users/auth/google'">
-
-    Google Sign In</button>
-</form>
+    <form class="sign_in_form" action="/users/create-session" method="post">
+        <h1>Please make your way in!</h1>
+        <div class="input-container">
+            <label for="email">Email</label>
+            <input type="email" name="email" placeholder="type in your email @ domain.com" required >
+        </div>
+    
+        <div class="input-container">
+            <label for="password">Password:</label>
+            <input type="password" name="password" placeholder="Type your password..." required>
+        </div>
+    
+    <input type="submit" value="Sign In">
+    <div class="or">or</div>
+    
+    
+    </form>
+    <button class="button_google" onclick="location.href='/users/auth/google'">
+    
+        Google Sign In</button>
+</div>
