@@ -171,11 +171,11 @@ module.exports.setNewPassword=async function(req, res){
                 
             //     )
             req.flash('success','password Reset Successfuly')
-            res.redirect('back')
+            res.redirect('/users/sign-in')
         }else{
             // res.send('Your access token expired plese request for password change again!')
             req.flash('error','your Token has expired')
-            res.redirect('back')
+            res.redirect('/users/forgot-password')
         }
     }catch(err){
         console.log('Error while update the password', err)
